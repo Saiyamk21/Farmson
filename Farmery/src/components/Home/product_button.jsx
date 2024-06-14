@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
-function Product_button() {
+function Product_button(props) {
     const[check,rec]=useState(false);
     function clicked(){
         rec(!check)
     }
+    useEffect(() => {
+      if (props.check === true) {
+          rec(false);
+      }
+  }, [props.check]);
+  
   return (
     <div>
-      <button onMouseEnter={clicked} onMouseLeave={clicked} className='relative opacity-80 text-[18px] text-white  hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]'>Products</button>
+      <button onMouseEnter={clicked}  className=' relative opacity-80 text-[18px] text-white  hover:text-gray-400 cursor-pointer transition-all ease-in-out before:transition-[width] before:ease-in-out before:duration-700 before:absolute before:bg-gray-400 before:origin-center before:h-[1px] before:w-0 hover:before:w-[50%] before:bottom-0 before:left-[50%] after:transition-[width] after:ease-in-out after:duration-700 after:absolute after:bg-gray-400 after:origin-center after:h-[1px] after:w-0 hover:after:w-[50%] after:bottom-0 after:right-[50%]'>Products</button>
       {check &&
       <div onMouseLeave={clicked} className=' absolute right-[7vw] top-[9vh] h-[26vh] w-[60vw] shadow-xl bg-[#393e46] flex  '>
        <div className="h-[35vh] w-1/3">

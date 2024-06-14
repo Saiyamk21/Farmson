@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "./components/Navbar";
-import Banner from "./components/Banner";
-import Whyus from "./components/Whyus";
-import Deliver from "./components/Deliver";
-import Process from './components/Process'
-import Counter from "./components/Counter";
-import Review from "./components/Review";
-import Footer from "./components/Footer";
+import Navbar from "./components/Home/Navbar";
+import Banner from "./components/Home/Banner"; 
+import Whyus from "./components/Home/Whyus";
+import Deliver from "./components/Home/Deliver";
+import Process from './components/Home/Process'
+import Counter from "./components/Home/Counter";
+import Review from "./components/Home/Review";
+import Footer from "./components/Home/Footer";
 function App() {
   return (
     <div>

@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
-import Product_button from 'Home/product_button';
-import Services_button from 'Home/Services_button';
+import Product_button from './product_button';
+import Services_button from './Services_button';
 function Navbar() {
 
   const[check,rec]=useState(false);
