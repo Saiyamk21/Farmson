@@ -7,9 +7,9 @@ const top=[
         sp:"60/ltr",
         cat:"dairy",
         subcat:"milk",
-        img:"",
-        star:5,
-        color:"purple"
+        img:"images/products/milk-3.jpeg",
+        star:4,
+        color:"bg-blue-400"
     },{
         key:2,
         id:2,
@@ -18,9 +18,43 @@ const top=[
         sp:"50/kg",
         cat:"groceries",
         subcat:"cereals",
-        img:"",
+        img:"images/products/wheat.jpeg",
         star:5,
-        color:"yellow"
-    }
-]
+        color:"bg-yellow-500"
+    },{
+        key:3,
+        id:3,
+        name:"Almond",
+        price:"200/kg",
+        sp:"180/kg",
+        cat:"groceries",
+        subcat:"dryfruit",
+        img:"images/products/almond.jpeg",
+        star:4,
+        color:"bg-red-400"
+    },{
+        key:3,
+        id:3,
+        name:"Badam",
+        price:"200/kg",
+        sp:"180/kg",
+        cat:"groceries",
+        subcat:"dryfruit",
+        img:"images/products/almond.jpeg",
+        star:4,
+        color:"bg-yellow-500"
+    },{
+        key:3,
+        id:3,
+        name:"Badam",
+        price:"200/kg",
+        sp:"180/kg",
+        cat:"groceries",
+        subcat:"dryfruit",
+        img:"images/products/almond.jpeg",
+        star:4,
+        color:"bg-yellow-500"
+    },
+
+];
 export default top;
