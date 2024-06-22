@@ -1,12 +1,27 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Card from './Card'
-import data from './fruit_veg'
-
+// import data from './fruit_veg'
+import axios from 'axios'
 
 function Fruit_sec() {
+  const [data,res]=useState([]);
+
+  async function call(){
+      try{
+        const result=await axios.get("http://localhost:3000/products/1");
+        res(result.data);
+      }
+      catch(err){
+        console.error(err.message);
+      }
+  }
+  useEffect(()=>{
+    call();
+  },[])
+
   return (
     <div>
-        <div className='h-[250vh]'>
+        <div className=''>
         <div className="w-[87vw] flex m-auto gap-8 justify-between">
         <div className="w-[27vw] h-[15.5vh] border-b-2"></div>
         <h1 className="mt-[12vh] text-center text-[40px]">

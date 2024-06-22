@@ -6,7 +6,7 @@ import Deliver from "./components/Home/Deliver";
 import Process from './components/Home/Process'
 import Counter from "./components/Home/Counter";
 import Review from "./components/Home/Review";
-import Footer from "./components/Home/Footer";
+import Footer from "./components/Footer";
 function Home() {
   return (
     <div>
@@ -17,7 +17,8 @@ function Home() {
       <Process/>
       <Counter/>
       <Review />
-      <Footer/>
+      <div className="relative top-[50vh]">
+      <Footer/></div>
 
     </div>
   )

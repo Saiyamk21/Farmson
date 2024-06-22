@@ -35,7 +35,7 @@ function Navbar() {
     <div>
     <nav className={scrollClass}>
       <div className="align-middle">
-        <img className="relative px-1 h-28 size-[200px] opacity-100 -top-7" src='images/home/logo-2.png' alt="Logo" />
+        <img className="relative px-1 h-28 size-[200px] opacity-100 -top-7" src='/images/home/logo-2.png' alt="Logo" />
       </div>
       <div>
         <ul className='flex px-4 py-2 space-x-12 justify-center h-22 align-text-top'>

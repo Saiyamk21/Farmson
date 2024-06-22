@@ -2,13 +2,13 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="relative top-[50vh]">
+    <div className="relative ">
       <div className='relative h-[56vh] bg-cover brightness-[25%] bg-fixed bg-[url("https://e0.pxfuel.com/wallpapers/37/511/desktop-wallpaper-beautiful-green-leaves-and-light-ultra-wq-walls-space-3440x1440-green.jpg")] bg-no-repeat'></div>
       <div className="absolute inset-[10%] ">
         <div className="flex">
           <div className="h-[50vh] w-1/4 flex flex-col justify-between">
             <div className=" relative -left-[5%] h-[8vh] size-[50%] brightness-[50%]">
-              <img src="images/home/logo.png"></img>
+              <img src="/images/home/logo.png"></img>
             </div>
             <div className="h-[10vh] text-slate-300 w-[18vw] mt-[10%] text-[16px] ">
               <p>

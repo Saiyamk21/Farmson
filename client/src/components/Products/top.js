@@ -33,7 +33,7 @@ const top=[
         star:4,
         color:"bg-red-400"
     },{
-        key:3,
+        key:4,
         id:3,
         name:"Badam",
         price:"200/kg",
@@ -44,7 +44,7 @@ const top=[
         star:4,
         color:"bg-yellow-500"
     },{
-        key:3,
+        key:5,
         id:3,
         name:"Badam",
         price:"200/kg",

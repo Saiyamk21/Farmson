@@ -5,22 +5,12 @@ function Banner() {
   return (
     <div>
       <div className=" relative h-screen w-vw">
-        <Carousel> 
+        
           <div
           className="bg-cover h-5/6 hover:bg-fixed w-full bg-left-bottom bg-fixed  bg-[url('images/home/home1.jpg')]"
           >
           </div>
-
-          <div
-          className="bg-cover h-5/6 hover:bg-fixed w-full bg-left-bottom bg-fixed  bg-[url('images/home/home1.jpg')]"
-          >
-          </div>
-
-          <div
-          className="bg-cover h-5/6 hover:bg-fixed w-full bg-left-bottom bg-fixed  bg-[url('images/home/home1.jpg')]"
-          >
-          </div>
-          </Carousel>
+          
         <div className=" absolute top-2/3 w-full flex justify-around ">
           <div className=" flex-2">
             <h1 className="text-6xl text-cyan-50"> Lorem Ipsom</h1>
