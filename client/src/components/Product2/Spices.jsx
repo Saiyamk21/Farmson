@@ -10,7 +10,7 @@ function Spices() {
 
   async function arr() {
     try {
-      const result = await axios.get("http://localhost:3000/products/spice");
+      const result = await axios.get("http://localhost:3000/products/?cat=spice");
       res(result.data);
     } catch (err) {
       console.error(err.message);

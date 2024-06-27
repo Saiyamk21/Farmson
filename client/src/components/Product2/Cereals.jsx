@@ -10,7 +10,7 @@ function Cereals() {
 
   async function arr() {
     try {
-      const result = await axios.get("http://localhost:3000/products/cereal");
+      const result = await axios.get("http://localhost:3000/products/?cat=cereal");
       res(result.data);
     } catch (err) {
       console.error(err.message);

@@ -8,8 +8,8 @@ function Fruit_sec() {
 
   async function call(){
       try{
-        const result=await axios.get("http://localhost:3000/products/1");
-        res(result.data);
+        const result=await axios.get("http://localhost:3000/products");
+        res(result.data.f);
       }
       catch(err){
         console.error(err.message);

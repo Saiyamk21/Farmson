@@ -1,5 +1,6 @@
 import React from "react";
 import { Carousel } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 function Banner() {
   return (
@@ -20,9 +21,9 @@ function Banner() {
           </div>
 
           <div>
-            <button className="bg-black shadow-black shadow-sm opacity-80 font-extralight text-xl m-8 p-3 px-7 rounded-3xl text-white hover:bg-slate-600">
+            <Link to="/login"><button className="bg-black shadow-black shadow-sm opacity-80 font-extralight text-xl m-8 p-3 px-7 rounded-3xl text-white hover:bg-slate-600">
               Login/Register
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>

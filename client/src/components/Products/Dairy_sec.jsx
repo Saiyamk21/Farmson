@@ -7,8 +7,8 @@ function Dairy_sec() {
   const [data,res]=useState([]);
   async function arr(){
     try{
-      const result=await axios.get('http://localhost:3000/products/2');
-      res(result.data);
+      const result=await axios.get('http://localhost:3000/products');
+      res(result.data.d);
     }
     catch(err){
       console.error(err.message);

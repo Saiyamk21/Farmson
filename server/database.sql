@@ -19,3 +19,9 @@ VALUES ('Egg','60/Doz','50/Doz','dairy&deli','poultry','/images/products/egg.jpe
 
 INSERT INTO products (name,price, sp,cat,subcat,img,star,details)
 VALUES ('Apple','100/Kg','80/Kg','fruit&veg','fruit','/images/products/apple.jpeg',4,'best apple');
+
+create table login(
+id serial primary key,
+username varchar(50),
+password varchar(50)
+);

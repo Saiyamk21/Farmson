@@ -1,155 +1,53 @@
-import express from "express"
-import bodyParser from "body-parser"
+import express from "express";
+import bodyParser from "body-parser";
 import db from "./db.js";
-import cors from "cors"
+import cors from "cors";
+import productRouter from "./routes/product1.js";
+import axios from "axios";
+import bcrypt, { hash } from 'bcrypt'
+
 
 db.connect();
 
-const app=express();
-const port=3000;
+const app = express();
+const port = 3000;
 app.use(cors());
+const saltRounds=10;
 
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use('/products',productRouter);
 
 
-//top
-app.get("/products/top",async(req,res)=>{
-   try{
-      const result=await db.query("SELECT * FROM top")
-   }
-   catch(err){
-      console.error(err.message);
-   }
-})
+app.post('/register',async(req,res)=>{
 
-//fruits home
-app.get("/products/1",async(req,res)=>{
-   try{
-      const results=await db.query("SELECT * FROM products WHERE cat='fruit&veg'");
-      console.log(results.rows);
-      res.json(results.rows);
-   }
-   catch(err){
-      console.error(err.message);
-   }
-})
-
-//dairy home
-app.get("/products/2",async(req,res)=>{
-   try{
-      const results=await db.query("SELECT * FROM products WHERE cat='dairy&deli'")
-      res.json(results.rows);
-
-   }
-   catch(err){
-      console.error(err.message);
-   }
-})
-
-//products/millk
-app.get("/products/milk",async(req,res)=>{
-   try{
-      const results=await db.query("SELECT * FROM products WHERE subcat='dairy'");
-      res.json(results.rows);
-   }
-   catch(err){
-      console.error(err.message);
-   }
-  })
-
-  //products/poultry
-   app.get("/products/poultry",async(req,res)=>{
-   try{
-      const results=await db.query("SELECT * FROM products WHERE subcat='poultry'");
-      res.json(results.rows);
-   }
-   catch(err){
-      console.error(err.message);
-   }
-  })
-
-    //products/meat
-    app.get("/products/meat",async(req,res)=>{
-      try{
-         const results=await db.query("SELECT * FROM products WHERE subcat='meat'");
-         res.json(results.rows);
+  const username=req.body.username;
+  const password=req.body.password;
+  const sucess=false;
+  try{
+    const results=await db.query("SELECT * FROM users WHERE username=$1",[username]);
+    if(results.rows.length > 0){
+        res.json(sucess);
+    }
+    else{
+      bcrypt.hash(password,saltRounds,async(err,hash)=>{
+        if(err){
+          console.error(err);
+        } else{
+          const result=await db.query("INSERT INTO users(username,password) VALUES ($1,$2) RETURNING *",[username,hash]);
+          const user = result.rows[0];
+          res.json(true);
+          
       }
-      catch(err){
-         console.error(err.message);
-      }
-     })
+    });
+  }
+  }
+  catch(err){
+    console.error(err);
+  }
 
-//products/fruits
-app.get("/products/fruits",async(req,res)=>{
- try{
-    const results=await db.query("SELECT * FROM products WHERE subcat='fruit'");
-    res.json(results.rows);
- }
- catch(err){
-    console.error(err.message);
- }
 })
-
-//products/vegetable
-app.get("/products/vegetable",async(req,res)=>{
-   try{
-      const results=await db.query("SELECT * FROM products WHERE subcat='vegetable'");
-      res.json(results.rows);
-   }
-   catch(err){
-      console.error(err.message);
-   }
-  })
-
-  //products/spices
-   app.get("/products/spice",async(req,res)=>{
-   try{
-      const results=await db.query("SELECT * FROM products WHERE subcat='spice'");
-      res.json(results.rows);
-   }
-   catch(err){
-      console.error(err.message);
-   }
-  })
-
-  
-  //products/cereals
-  app.get("/products/cereal",async(req,res)=>{
-   try{
-      const results=await db.query("SELECT * FROM products WHERE subcat='cereal'");
-      res.json(results.rows);
-   }
-   catch(err){
-      console.error(err.message);
-   }
-  })
-
-  
-  //products/pulse
-  app.get("/products/pulse",async(req,res)=>{
-   try{
-      const results=await db.query("SELECT * FROM products WHERE subcat='pulse'");
-      res.json(results.rows);
-   }
-   catch(err){
-      console.error(err.message);
-   }
-  })
-
-  
-  //products/dryfruit
-  app.get("/products/dryfruit",async(req,res)=>{
-   try{
-      const results=await db.query("SELECT * FROM products WHERE subcat='dryfruit'");
-      res.json(results.rows);
-   }
-   catch(err){
-      console.error(err.message);
-   }
-  })
-
-app.listen(3000,()=>{
-    console.log("listening on 3000");
-})
-
-
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});

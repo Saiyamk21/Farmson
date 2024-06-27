@@ -10,7 +10,7 @@ function Dairydon() {
 
   async function arr() {
     try {
-      const results = await axios.get("http://localhost:3000/products/milk");
+      const results = await axios.get("http://localhost:3000/products/?cat=dairy");
       res(results.data);
       console.log(results.data);
     } catch (err) {

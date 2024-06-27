@@ -10,7 +10,7 @@ function Dryfruit() {
 
   async function arr() {
     try {
-      const result = await axios.get("http://localhost:3000/products/dryfruit");
+      const result = await axios.get("http://localhost:3000/products/?cat=dryfruit");
       res(result.data);
     } catch (err) {
       console.error(err.message);

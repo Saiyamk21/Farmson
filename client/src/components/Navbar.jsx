@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Product_button from './Home/product_button';// Ensure the correct path
 import Services_button from './Home/Services_button'; // Ensure the correct path
 import { Link } from 'react-router-dom';
-import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 
 
@@ -45,7 +44,7 @@ function Navbar() {
           <li><Link to="/gallery"><button onMouseEnter={handleMouseEnter} className='relative opacity-80 text-[18px] text-white hover:text-gray-400 cursor-pointer transition-all ease-in-out'>Gallery</button></Link></li>
           <li><Services_button check={check} /></li>
           <li><Link to="/contact"><button onMouseEnter={handleMouseEnter} className='relative opacity-80 text-[18px] text-white hover:text-gray-400 cursor-pointer transition-all ease-in-out'>Contact</button></Link></li>
-         <div className='bg-white brightness-50 h-[4vh] w-[4vh] m-auto '><ShoppingCartIcon fontSize="large"color='error'/></div> 
+          <Link to="/cart"><div className=' h-[8vh] w-[9vh] m-auto  '><img src="/images/home/cart.png"/> </div> </Link> 
         </ul>
       </div>
     </nav>

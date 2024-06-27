@@ -9,7 +9,7 @@ function Meat() {
 
   async function arr() {
     try {
-      const result = await axios.get("http://localhost:3000/products/meat");
+      const result = await axios.get("http://localhost:3000/products/?cat=meat");
       res(result.data);
     } catch (err) {
       console.error(err.message);
