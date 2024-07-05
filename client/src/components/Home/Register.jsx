@@ -23,9 +23,7 @@ function Register() {
         username: "",
         password: "",
       });
-
       toast.success("Registration successful");
-
       // navigate('/');
     } catch (err) {
       console.error(err.message);

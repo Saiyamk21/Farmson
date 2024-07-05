@@ -13,7 +13,7 @@ import Pulses from "./components/Product2/Pulses";
 import Dryfruit from "./components/Product2/Dryfruit";
 import Login from "./components/Home/Login";
 import Register from "./components/Home/Register";
-
+import Cart from "./components/Home/Cart";
 function App() {
   return (
     <Router>
@@ -24,6 +24,8 @@ function App() {
         <Route path="/contact" element={<h1>hello</h1>} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/register" element={<Register/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+
 
         <Route path="/product/milk" element={<Dairydon />} />
         <Route path="/product/poultry" element={<Poultry/>} />

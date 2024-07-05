@@ -1,21 +1,50 @@
-import { Link } from "react-router-dom";
-import React, { useState } from "react";
+import {Link, useNavigate} from "react-router-dom";
+import React, {useState} from "react";
 import Navbar from "../Navbar";
+import axios from "axios";
+import {useAuth} from "../../Auth";
 
 function Login() {
+  const navigate = useNavigate();
   const [info, res] = useState({
     username: "",
     password: "",
   });
 
+  const auth=useAuth();
+
+  const [valid, update] = useState(false);
+
   function change(event) {
     const { value, name } = event.target;
     res({ ...info, [name]: value });
   }
+
+  async function click(e) {
+    e.preventDefault();
+    try {
+      const result = await axios.post("http://localhost:3000/login", info);
+      console.log(result.data);
+      if (result.data.state) {
+        update(true);
+        auth.authupdate(true);
+        console.log(auth.authState);
+        res({username:'',password:''});
+        navigate('/');
+      }
+      else{
+        alert("Invalid Credentials");
+        res({username:'',password:''});
+
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
   return (
     <div>
-       <div className="h-[10vh] w-vw bg-black"></div>
-       <Navbar/>
+      <div className="h-[10vh] w-vw bg-black"></div>
+      <Navbar />
       <img
         className="absolute h-[90vh] mx-[5vw] w-vw object-cover "
         src="images/home/login.png"
@@ -54,13 +83,19 @@ function Login() {
             </div>
             <div className="h-[5vh] my-4">
               <input
+                onClick={click}
                 className=" transition-all ease-in-out h-[5vh] w-[19vw] mx-[2vw] text-[20px] bg-pink-400 hover:text-white hover:border-2 border-black rounded-xl"
                 type="submit"
                 size="5"
               />
             </div>
           </form>
-          <div className="text-end px-9 my-3">Need a account? <Link to="/register"><button className=" text-slate-500 underline">SIGN-UP</button></Link></div>
+          <div className="text-end px-9 my-3">
+            New here?{" "}
+            <Link to="/register">
+              <button className=" text-slate-500 underline">SIGN-UP</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

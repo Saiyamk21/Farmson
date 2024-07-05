@@ -1,7 +1,7 @@
 import pg from "pg"
 
 
-const db=new pg.Client({
+const db=new pg.Pool({
  user: "postgres",
   host: "localhost",
   database: "Farmson",
