@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext, createContext } from "react";
-import axios from "axios";
 
 export const AuthContext = createContext();
 
@@ -9,29 +8,17 @@ export const useAuth=()=>{
 };
 
 export const Auth=(props)=>{
-  const [authState,authupdate] = useState({
-    isAuthenticated: false,
-    response: null,
-  });
-  // async function checkauth(){
-  //   const result=await axios.get('/login');
-  //   if(result.data){
-  //     authupdate({
-  //       isAuthenticated:true,
-  //       response:null,
-  //   });
-  //   }
-  //   else{
-  //     authupdate({
-  //       isAuthenticated:false,
-  //       response:null
-  //     });
-  //   }
-  // }
-// useEffect(()=>{
-//   checkauth();
-//     },[])
+  const [authState,authupdate] = useState(false);
 
+  const loggedin=()=>{
+    if(localStorage.getItem('token')){
+      authupdate(true);
+    }
+  }
+
+useEffect(()=>{
+  loggedin();
+}) 
   return (
   <div>
     <AuthContext.Provider value={{authState,authupdate}}>

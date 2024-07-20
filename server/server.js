@@ -9,7 +9,7 @@ import passport from "passport";
 import { Strategy } from "passport-local";
 import jwt from "jsonwebtoken";
 
-db.connect(); 
+db.connect();
 
 const app = express();
 const port = 3000;
@@ -18,7 +18,6 @@ const saltRounds = 10;
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
 
 app.use(
   session({
@@ -37,7 +36,9 @@ app.post("/register", async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   try {
-    const results = await db.query("SELECT * FROM users WHERE username=$1", [username]);
+    const results = await db.query("SELECT * FROM users WHERE username=$1", [
+      username,
+    ]);
     if (results.rows.length > 0) {
       res.json({ success: false });
     } else {
@@ -60,11 +61,23 @@ app.post("/register", async (req, res) => {
   }
 });
 
+app.post("/cart", async (req, res) => {
+  try {
+    console.log(req.body.id);
+    const result=await db.query(`SELECT ci.id, ci.user_id, ci.product_id, ci.quantity, p.name, p.sp,p.img FROM cart_items AS ci JOIN products AS p ON ci.product_id = p.id WHERE ci.user_id = $1`,[req.body.id]);
+    res.json(result.rows);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 passport.use(
   "local",
   new Strategy(async function verify(username, password, cb) {
     try {
-      const res = await db.query("SELECT * FROM users WHERE username=$1", [username]);
+      const res = await db.query("SELECT * FROM users WHERE username=$1", [
+        username,
+      ]);
       if (res.rows.length > 0) {
         const user = res.rows[0];
         const storedHashedPassword = user.password;
@@ -110,8 +123,8 @@ app.post("/login", (req, res, next) => {
     }
     if (!user) {
       return res.json({
-        state:false,
-        token:null
+        state: false,
+        token: null,
       });
     }
     req.logIn(user, (err) => {
@@ -119,10 +132,11 @@ app.post("/login", (req, res, next) => {
         console.error("Login error:", err);
         return next(err);
       }
-      var token=jwt.sign({id:user.id},'hell');
+      var token = jwt.sign({ id: user.id }, "hell");
       return res.json({
-        state:true,
-        token:token
+        state: true,
+        token: token,
+        id: user.id,
       });
     });
   })(req, res, next);

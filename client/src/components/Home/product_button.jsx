@@ -17,7 +17,7 @@ function Product_button(props) {
     <div>
       <Link to="/product"><button onMouseEnter={clicked}  className=' relative opacity-80 text-[18px] text-white hover:text-gray-400 cursor-pointer transition-all ease-in-out'>Products</button></Link>
       {check &&
-      <div onMouseLeave={clicked} className=' brightness-[85%] absolute rounded-xl right-[7vw] top-[9vh] h-[23vh] w-[60vw] shadow-xl bg-[#393e46] flex  '>
+      <div onMouseLeave={clicked} className=' brightness-[85%] absolute rounded-xl right-[7vw] top-[9vh] h-[23vh] w-[60vw] shadow-xl bg-[#393e46] flex z-[5]  '>
        <div className="h-[20vh] w-1/3">
           <h1 className="h-[4vh] w-[15vw] m-auto my-[20px] text-[20px] text-bottom text-gray-200 font-extrabold border-b-2  ">DAIRY & DELIGHTS</h1>
           <div className= "relative text-[15px] text-gray-300 w-[15vw] m-auto font-extralight flex flex-col gap-1 ">

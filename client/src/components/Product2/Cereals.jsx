@@ -25,7 +25,7 @@ function Cereals() {
       <Navbar />
       <div className='h-[90vh] w-screen bg-[url("/images/allprod/dairy-bg-3.jpg")]  bg-cover bg-right-bottom'>
         <div className="font-sans  m-auto relative text-[85px] h-[10vh] w-[20vw] top-[25vh]">
-           <span className="font-extrabold"> Cereasl</span>
+           <span className="font-extrabold"> Cereals</span>
         </div>
       </div>
       <div className="mt-[10vh] p-5 py-[10vh] bg-blue-100  flex flex-wrap justify-around">

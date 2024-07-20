@@ -44,7 +44,7 @@ function Navbar() {
           <li><Link to="/gallery"><button onMouseEnter={handleMouseEnter} className='relative opacity-80 text-[18px] text-white hover:text-gray-400 cursor-pointer transition-all ease-in-out'>Gallery</button></Link></li>
           <li><Services_button check={check} /></li>
           <li><Link to="/contact"><button onMouseEnter={handleMouseEnter} className='relative opacity-80 text-[18px] text-white hover:text-gray-400 cursor-pointer transition-all ease-in-out'>Contact</button></Link></li>
-          <Link to="/cart"><div className=' h-[8vh] w-[9vh] m-auto  '><img src="/images/home/cart.png"/> </div> </Link> 
+          <Link to="/cart"><div className=' h-[8vh] z-10 w-[9vh] m-auto  '><img src="/images/home/cart.png"/> </div> </Link> 
         </ul>
       </div>
     </nav>

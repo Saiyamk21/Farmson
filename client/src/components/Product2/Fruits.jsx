@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar";
 import Footer from "../Footer";
 import Card from "../Products/Card";
-import fetchFruits from "./fruits"; // Adjust the path as necessary
+
 import axios from "axios";
 
 function Fruits() {

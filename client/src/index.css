@@ -3,7 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-body,.head{
+body,.head,.cart{
     font-family:'Poppins',sans-serif ;
     
 }

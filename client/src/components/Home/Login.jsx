@@ -13,7 +13,7 @@ function Login() {
 
   const auth=useAuth();
 
-  const [valid, update] = useState(false);
+ 
 
   function change(event) {
     const { value, name } = event.target;
@@ -24,11 +24,9 @@ function Login() {
     e.preventDefault();
     try {
       const result = await axios.post("http://localhost:3000/login", info);
-      console.log(result.data);
       if (result.data.state) {
-        update(true);
         auth.authupdate(true);
-        console.log(auth.authState);
+        localStorage.setItem('token',JSON.stringify(result.data));
         res({username:'',password:''});
         navigate('/');
       }
